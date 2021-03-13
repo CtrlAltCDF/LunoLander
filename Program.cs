@@ -1,27 +1,22 @@
 ﻿using System;
 using System.Threading.Tasks;
-using LunoRepository;
+using LunoExchange;
 
 namespace LunoLander
 {
     class Program
     {
-        // kt2dhghgqdn3n
-        // YkomD6yHeCgAbe8fzbx9XbLXY9CObBgvHzrjNK16XjU
-        //static void Main(string[] args)
-        //{
-        //    Console.WriteLine("Hello World!");
-        //}
         static async Task Main(string[] args)
         {
-            var lunoRepo = new LunoRepo("kt2dhghgqdn3n", "YkomD6yHeCgAbe8fzbx9XbLXY9CObBgvHzrjNK16XjU");
+            var Luno = new LunoApi("kt2dhghgqdn3n", "YkomD6yHeCgAbe8fzbx9XbLXY9CObBgvHzrjNK16XjU");
+            await Luno.Api.CoinAccount.GetAllPairPrices();
 
-            foreach (var repo in await lunoRepo.CoinAccount.there())
-            {
-                Console.WriteLine(repo.Name);
-            }
+            //foreach (var repo in await lunoRepo.CoinAccount.there())
+            //{
+            //    Console.WriteLine(repo.Name);
+            //}
 
-            Console.ReadLine();
+            //Console.ReadLine();
         }
     }
 }

@@ -11,22 +11,24 @@ namespace LunoExchange.ApiSections
     public class CoinAccount
     {
         public Credentials Credentials;
+        private HttpClient Client;
 
-        public CoinAccount(Credentials credentials)
+        public CoinAccount(Credentials credentials, HttpClient client)
         {
             Credentials = credentials;
+            Client = client;
         }
 
-        private static readonly HttpClient client = new HttpClient();
+         //client = new HttpClient();
 
         public async Task<List<XResponse>> GetAllPairPrices()
         {
-            client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Accept.Add(
+            Client.DefaultRequestHeaders.Accept.Clear();
+            Client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
-            client.DefaultRequestHeaders.Add("User-Agent", ".Net Trader");
+            Client.DefaultRequestHeaders.Add("User-Agent", ".Net Trader");
 
-            var streamTask = client.GetStreamAsync("https://api.github.com/orgs/dotnet/repos");
+            var streamTask = Client.GetStreamAsync("https://api.github.com/orgs/dotnet/repos");
             var res = await JsonSerializer.DeserializeAsync<List<XResponse>>(await streamTask);
 
             return res;
