@@ -8,7 +8,8 @@ namespace LunoLander
     {
         static async Task Main(string[] args)
         {
-            var Luno = new LunoApi("kt2dhghgqdn3n", "YkomD6yHeCgAbe8fzbx9XbLXY9CObBgvHzrjNK16XjU");
+            var credentials = new Credentials("kt2dhghgqdn3n", "YkomD6yHeCgAbe8fzbx9XbLXY9CObBgvHzrjNK16XjU");
+            var Luno = new LunoApi(credentials);
             await Luno.Api.CoinAccount.GetAllPairPrices();
 
             //foreach (var repo in await lunoRepo.CoinAccount.there())
