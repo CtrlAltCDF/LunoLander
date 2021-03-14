@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31105.61
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LunoLander", "LunoLander.csproj", "{BD1E5BBC-8993-4354-9B30-E543164219A7}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LunoExchange", "LunoExchange\LunoExchange.csproj", "{E4FE5534-F800-4C4B-A447-AAA5CC94764C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Launcher", "Launcher\Launcher.csproj", "{2FFD3383-BA9E-4AF9-884F-5F8B34709D57}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BD1E5BBC-8993-4354-9B30-E543164219A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BD1E5BBC-8993-4354-9B30-E543164219A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BD1E5BBC-8993-4354-9B30-E543164219A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BD1E5BBC-8993-4354-9B30-E543164219A7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E4FE5534-F800-4C4B-A447-AAA5CC94764C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E4FE5534-F800-4C4B-A447-AAA5CC94764C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4FE5534-F800-4C4B-A447-AAA5CC94764C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E4FE5534-F800-4C4B-A447-AAA5CC94764C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FFD3383-BA9E-4AF9-884F-5F8B34709D57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FFD3383-BA9E-4AF9-884F-5F8B34709D57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FFD3383-BA9E-4AF9-884F-5F8B34709D57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FFD3383-BA9E-4AF9-884F-5F8B34709D57}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

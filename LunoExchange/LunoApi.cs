@@ -10,16 +10,15 @@ namespace LunoExchange
     {
         public Api Api;
 
-        private Credentials Credentials;
+        private Config Config;
         private bool IsInitialized = false;
         private readonly HttpClient Client = new HttpClient();
-        private readonly string Url = "https:////api.luno.com//api//1//{0}";
 
-        public LunoApi(Credentials credentials)
+        public LunoApi(Config config)
         {
             if (!IsInitialized)
             {
-                Credentials = credentials;
+                Config = config;
 
                 // set default client headers
                 Client.DefaultRequestHeaders.Accept.Clear();
@@ -29,7 +28,7 @@ namespace LunoExchange
                 Client.DefaultRequestHeaders.Add("User-Agent", "CDF-Luno-Lander");
 
                 // Initialize Api Sections
-                Api = new Api(Credentials, Client);
+                Api = new Api(config, Client);
             }
             else
             {

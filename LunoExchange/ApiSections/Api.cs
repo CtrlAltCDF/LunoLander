@@ -7,10 +7,10 @@ namespace LunoExchange.ApiSections
     {
         // vars for api sections here
         public CoinAccount CoinAccount;
-        public Api(Credentials credentials, HttpClient client)
+        public Api(Config config, HttpClient client)
         {
             // init api sections here
-            CoinAccount = new CoinAccount(credentials, client);
+            CoinAccount = new CoinAccount(config, client);
         }
     }
 }

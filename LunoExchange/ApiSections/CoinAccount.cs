@@ -10,16 +10,14 @@ namespace LunoExchange.ApiSections
 {
     public class CoinAccount
     {
-        public Credentials Credentials;
+        public Config Config;
         private HttpClient Client;
 
-        public CoinAccount(Credentials credentials, HttpClient client)
+        public CoinAccount(Config config, HttpClient client)
         {
-            Credentials = credentials;
+            Config = config;
             Client = client;
         }
-
-         //client = new HttpClient();
 
         public async Task<List<XResponse>> GetAllPairPrices()
         {
