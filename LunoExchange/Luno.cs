@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
 using LunoExchange.ApiSections;
 
 
 namespace LunoExchange
 {
-    public class LunoApi
+    public class Luno
     {
         public Api Api;
 
@@ -14,7 +15,7 @@ namespace LunoExchange
         private bool IsInitialized = false;
         private readonly HttpClient Client = new HttpClient();
 
-        public LunoApi(Config config)
+        public Luno(Config config)
         {
             if (!IsInitialized)
             {
@@ -25,7 +26,16 @@ namespace LunoExchange
                 Client.DefaultRequestHeaders.Accept.Add(
                     new MediaTypeWithQualityHeaderValue("application/json"));
 
+                //Console.WriteLine(string.Format("{0}:{1}", config.ApiKey, config.ApiSecret));
+
+                Console.WriteLine($"{Config.ApiKey}:{Config.ApiSecret}");
+
                 Client.DefaultRequestHeaders.Add("User-Agent", "CDF-Luno-Lander");
+
+                Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
+                    "Basic",
+                    Convert.ToBase64String(ASCIIEncoding.ASCII.GetBytes($"{Config.ApiKey}:{Config.ApiSecret}"))
+                );
 
                 // Initialize Api Sections
                 Api = new Api(config, Client);

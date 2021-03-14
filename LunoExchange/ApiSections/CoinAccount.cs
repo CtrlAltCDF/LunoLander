@@ -2,9 +2,10 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using LunoExchange.Types;
 using System.Net.Http.Headers;
 using System.Text.Json;
+using LunoExchange.Types;
+using Newtonsoft.Json;
 
 namespace LunoExchange.ApiSections
 {
@@ -19,18 +20,17 @@ namespace LunoExchange.ApiSections
             Client = client;
         }
 
-        public async Task<List<XResponse>> GetAllPairPrices()
+        public async Task<CoinAccountCreateResponse> CreateAccount(string currency, string accountName)
         {
-            Client.DefaultRequestHeaders.Accept.Clear();
-            Client.DefaultRequestHeaders.Accept.Add(
-                new MediaTypeWithQualityHeaderValue("application/json"));
-            Client.DefaultRequestHeaders.Add("User-Agent", ".Net Trader");
+            var postContent = new FormUrlEncodedContent(new[]
+            {
+                new KeyValuePair<string, string>("currency", currency),
+                new KeyValuePair<string, string>("name", accountName)
+            });
 
-            var streamTask = Client.GetStreamAsync("https://api.github.com/orgs/dotnet/repos");
-            var res = await JsonSerializer.DeserializeAsync<List<XResponse>>(await streamTask);
+            var postResponse = await Client.PostAsync(Config.ReturnUrl("/accounts"), postContent).Result.Content.ReadAsStringAsync();
 
-            return res;
-
+            return JsonConvert.DeserializeObject<CoinAccountCreateResponse>(postResponse);
         }
     }
 }

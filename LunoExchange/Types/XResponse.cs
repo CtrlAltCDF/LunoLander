@@ -3,20 +3,13 @@ using System.Text.Json.Serialization;
 
 namespace LunoExchange.Types
 {
-    public class XResponse
+    public class CoinAccountCreateResponseX
     {
+        [JsonPropertyName("id")]
+        public int String { get; set; }
+        [JsonPropertyName("currency")]
+        public string Currency { get; set; }
         [JsonPropertyName("name")]
         public string Name { get; set; }
-
-        [JsonPropertyName("id")]
-        public int Id { get; set; }
-
-        [JsonPropertyName("description")]
-        public string Description { get; set; }
-
-        [JsonPropertyName("pushed_at")]
-        public DateTime LastPushUtc { get; set; }
-
-        public DateTime LastPush => LastPushUtc.ToLocalTime();
     }
 }

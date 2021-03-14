@@ -1,14 +1,18 @@
 ﻿using System;
+using System.Threading.Tasks;
 using LunoExchange;
 
 namespace Launcher
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            var config = new Config("x", "y");
-            Console.WriteLine(config.ReturnUrl("/test/123/sdfsdf"));
+            var config = new Config("fr56kzvtr3n8w", "kZzsB-VZDRP3L46go0IbZdg2b7LmgoHgdZvbXDlDsW0");
+            var luno = new Luno(config);
+
+            var res = await luno.Api.CoinAccount.CreateAccount("LTC", "testAccount");
         }
     }
 }
+

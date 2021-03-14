@@ -21,7 +21,7 @@ namespace LunoExchange
 
         public string ReturnUrl(string appendment)
         {
-            return String.Format(Url, appendment);
+            return string.Format(Url, appendment);
         }
     }
 }
